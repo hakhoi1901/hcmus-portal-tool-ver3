@@ -3,14 +3,17 @@ import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/rendere
 
 // Register fonts for Vietnamese support via Google Fonts
 Font.register({
-  family: 'Roboto',
+  family: 'Times New Roman',
   fonts: [
     {
-      src: '../../../public/fonts/times-new-roman.ttf',
+      // Files under public are served from the site root. A relative path here
+      // resolves from the active route (for example /settings) and can return
+      // the app HTML instead of a font.
+      src: '/fonts/times-new-roman.ttf',
       fontWeight: 'normal',
     },
     {
-      src: '../../../public/fonts/times-new-roman-bold.ttf',
+      src: '/fonts/times-new-roman-bold.ttf',
       fontWeight: 'bold',
     },
   ],
@@ -19,7 +22,7 @@ Font.register({
 // StyleSheet creation for PDF document
 const styles = StyleSheet.create({
   page: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Times New Roman',
     padding: 40,
     fontSize: 11,
     lineHeight: 1.5,
