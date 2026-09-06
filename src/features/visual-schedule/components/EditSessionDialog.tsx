@@ -7,6 +7,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '../../../componen
 import { type ScheduleSession, type ScheduleOverrides, type SessionOverride, DAYS } from '../types';
 import type { OpenClassDetailTarget } from '../../../components/course';
 import { calculateRowSpan, getDisplayEnd } from '../services/schedule-helpers';
+import { ScheduleNote } from './schedule-note';
 
 function EditSessionDialog({ open, onOpenChange, session, weekNumber, overrides, onSave }: {
     open: boolean;
@@ -558,10 +559,7 @@ function CourseCard({
                         </div>
 
                         {sess.note && (
-                            <div className="mt-4 flex gap-2 border-l-2 border-amber-400 bg-amber-50 px-3 py-2.5 text-sm leading-5 text-amber-900">
-                                <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-                                <p>{sess.note}</p>
-                            </div>
+                            <ScheduleNote note={sess.note} />
                         )}
                     </section>
                 ))}
